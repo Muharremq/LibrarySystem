@@ -12,12 +12,26 @@
   --sidebar-icon-color: #94a3b8;
   --sidebar-width: 280px;
   --sidebar-width-collapsed: 80px;
-  --header-height: 70px; /* Ana içerik başlığı ile hizalamak için */
+  --header-height: 70px;
   --transition-speed: 0.3s;
   --primary-accent: #4f46e5;
   --warn-accent: #f59e0b;
   --shadow-color: rgba(0, 0, 0, 0.2);
   --font-family: "Poppins", sans-serif;
+  --primary-color: #4a69bd;
+  --secondary-color: #f6f9fc;
+  --text-color: #333;
+  --white-color: #fff;
+  --border-color: #e1e4e8;
+}
+
+/* Body'ye başlangıç stili - sidebar açık durumda olacak */
+body {
+  font-family: var(--font-family);
+  margin: 0;
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  transition: all var(--transition-speed) ease;
 }
 
 /* Ana Kenar Çubuğu Stili */
@@ -165,62 +179,14 @@
   transition: opacity 0.2s ease;
 }
 
-/* Bildirim Rozetleri */
-.nav-badge {
-  margin-left: auto;
-  background-color: var(--sidebar-bg-hover);
-  color: var(--sidebar-text);
-  padding: 3px 8px;
-  font-size: 12px;
-  font-weight: 600;
-  border-radius: 12px;
-}
-
-.nav-link.active .nav-badge {
-  background-color: rgba(255, 255, 255, 0.2);
-}
-
-.nav-badge.warn {
-  background-color: var(--warn-accent);
-  color: var(--sidebar-bg);
-}
-
-/* Sidebar Alt Kısmı */
-.sidebar-bottom {
-  flex-shrink: 0;
-  border-top: 1px solid var(--sidebar-bg-hover);
-  padding-top: 10px;
-  margin-top: auto;
-}
-
 /* Kullanıcı Profili */
 .user-profile {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 15px;
-}
-
-.user-avatar {
-  position: relative;
-}
-
-.avatar-img {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.status-indicator {
-  position: absolute;
-  bottom: 1px;
-  right: 1px;
-  width: 10px;
-  height: 10px;
-  background-color: #2ecc71;
-  border-radius: 50%;
-  border: 2px solid var(--sidebar-bg);
+  border-top: 1px solid var(--sidebar-bg-hover);
+  margin-top: auto;
 }
 
 .user-actions {
@@ -236,6 +202,7 @@
   cursor: pointer;
   padding: 5px;
 }
+
 .action-btn.logout:hover {
   color: #e74c3c;
 }
@@ -255,15 +222,14 @@
 .modern-sidebar.collapsed .nav-title,
 .modern-sidebar.collapsed .user-actions {
   opacity: 0;
-  pointer-events: none; /* Üzerine gelinmesini engelle */
+  pointer-events: none;
 }
 
 .modern-sidebar.collapsed .user-profile {
   justify-content: center;
 }
 
-/* -------- MOBİL VE DUYARLI TASARIM -------- */
-
+/* Sidebar Overlay for Mobile */
 .sidebar-overlay {
   position: fixed;
   top: 0;
@@ -277,6 +243,119 @@
   transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
+/* Ana İçerik Alanı - Sidebar'ın yanında konumlanır */
+.main-content {
+  margin-left: var(
+    --sidebar-width
+  ); /* Başlangıçta sidebar genişliği kadar margin */
+  padding: 20px;
+  transition: margin-left var(--transition-speed) ease;
+  min-height: 100vh;
+}
+
+/* Sidebar daraltıldığında ana içerik alanının margin'ını küçült */
+body.sidebar-collapsed .main-content {
+  margin-left: var(--sidebar-width-collapsed);
+}
+
+/* Başlık (Header) Stilleri */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: var(--white-color);
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: 0 2px 4px var(--shadow-color);
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.page-title {
+  margin: 0;
+  font-size: 24px;
+  color: var(--text-color);
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  color: var(--text-color);
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+/* Mobil Menü Butonu */
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  margin-right: 15px;
+  color: var(--text-color);
+}
+
+/* Hızlı İşlemler Bölümü */
+.quick-actions {
+  background-color: var(--white-color);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+.section-title {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 20px;
+  color: var(--text-color);
+}
+
+/* Eylem Butonları için Grid Düzeni */
+.actions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.quick-action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.quick-action-btn:hover {
+  background-color: #3b56a0;
+}
+
+.quick-action-btn i {
+  margin-right: 10px;
+}
+
+/* Mobil Responsive */
 @media (max-width: 1024px) {
   .modern-sidebar {
     transform: translateX(-100%);
@@ -292,11 +371,11 @@
     visibility: visible;
   }
 
-  /* JavaScript tarafından ana içeriğe eklenecek padding-left'i sıfırla */
-  .content-wrapper,
   .main-content {
-    transition: margin-left var(--transition-speed) ease;
-    margin-left: 0 !important; /* JS'nin eklediği stili geçersiz kıl */
-    padding-left: 0 !important;
+    margin-left: 0 !important;
+  }
+
+  .mobile-menu-btn {
+    display: block;
   }
 }

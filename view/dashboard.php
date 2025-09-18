@@ -36,7 +36,6 @@ if(isset($_SESSION['user_id'])){
 </head>
 <body>
     <?php 
-    // Navbar'ı dahil et
     require_once "../view/partial/navbar.php";
     ?>
     
