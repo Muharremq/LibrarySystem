@@ -18,7 +18,7 @@ if(isset($_SESSION['user_id'])){
         if(!$result){
             $error_message = "Veritabanı hatası: " . mysqli_error($connect);
         }else {
-            header("Location: view_transaction.php");
+            header("Location: view_transactions.php");
         }     
 }else {
     header("Location: ../../view/dashboard.php");

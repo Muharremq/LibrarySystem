@@ -41,11 +41,6 @@ if(isset($_SESSION['user_id'])){
     ?>
     
     <div class="content-wrapper">
-        <div class="welcome-section">
-            <h2>Kullanıcı Dashboard</h2>
-            <p>Kütüphanemizdeki mevcut kitapları görüntüleyebilir ve ödünç alabilirsiniz.</p>
-        </div>
-
         <?php if(isset($error_message) && !empty($error_message)): ?>
             <div class="error-message"><?php echo htmlspecialchars($error_message); ?></div>
         <?php elseif($result && $result->num_rows > 0): ?>
@@ -55,7 +50,7 @@ if(isset($_SESSION['user_id'])){
                         <?php if(!empty($row['image'])): ?>
                             <?php 
                             // Resim yolu düzeltmesi - image klasörü aynı dizinde olmalı
-                            $image_path = "image/" . $row['image']; 
+                            $image_path = "../admin/image/" . $row['image']; 
                             ?>
                             <?php if(file_exists($image_path)): ?>
                                 <img src="<?php echo htmlspecialchars($image_path); ?>" 

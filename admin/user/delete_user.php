@@ -9,12 +9,12 @@ if(isset($_SESSION['user_id'])){
             
             // Önce kullanıcının var olup olmadığını kontrol et
             $check_sql = "SELECT id FROM users WHERE id = '$user_id' AND role = 'user'";
-            $check_result = mysqli_query($conn, $check_sql);
+            $check_result = mysqli_query($connect, $check_sql); // $conn yerine $connect kullan
             
             if(mysqli_num_rows($check_result) > 0){
                 // Kullanıcı var, silebiliriz
                 $sql = "DELETE FROM users WHERE id = '$user_id' AND role = 'user'";
-                $result = mysqli_query($conn, $sql);
+                $result = mysqli_query($connect, $sql); // $conn yerine $connect kullan
 
                 if($result){
                     // Başarılı silme işlemi
@@ -23,7 +23,7 @@ if(isset($_SESSION['user_id'])){
                     exit();
                 } else {
                     // Veritabanı hatası
-                    $_SESSION['error_message'] = "Veritabanı hatası: " . mysqli_error($conn);
+                    $_SESSION['error_message'] = "Veritabanı hatası: " . mysqli_error($connect); // $conn yerine $connect kullan
                     header("Location: manage_users.php");
                     exit();
                 }

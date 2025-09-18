@@ -89,10 +89,10 @@ if(!$result){
         </div>
     <?php endif; ?>
 
-     <!-- "Yeni Kitap Ekle" butonu -->
-        <div style="text-align: right; margin-bottom: 20px; max-width: 1200px; margin-left: auto; margin-right: auto;">
-            <a href="add_book.php" class="btn" style="...">Yeni Kitap Ekle</a>
-        </div>
+<!-- "Yeni Kitap Ekle" butonu -->
+<div style="text-align: right; margin-bottom: 20px; max-width: 1200px; margin-left: auto; margin-right: auto;">
+    <a href="add_book.php" class="btn" style="background-color: var(--dark-gray-color); color: white;">Yeni Kitap Ekle</a>
+</div> 
 
     <div class="table-wrapper">
         <table class="view-books">

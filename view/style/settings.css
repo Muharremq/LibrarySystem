@@ -6,16 +6,14 @@ body {
     #6a11cb,
     #2575fc
   ); /* Modern gradient arka plan */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
   margin: 0;
   color: #333;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  padding: 20px; /* Kenarlardan boşluk bırak */
+  padding: 20px;
   box-sizing: border-box;
+  min-height: 100vh;
+  padding-top: 100px; /* Navbar için üstten boşluk bırak */
 }
 
 .container {
@@ -24,11 +22,12 @@ body {
   border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
   width: 100%;
-  max-width: 600px; /* Ayarlar sayfası için daha geniş bir maksimum genişlik */
+  max-width: 600px;
   box-sizing: border-box;
   animation: fadeIn 0.8s ease-out forwards;
   opacity: 0;
   transform: translateY(-20px);
+  margin: 0 auto; /* Container'ı yatayda ortala */
 }
 
 @keyframes fadeIn {
@@ -160,7 +159,7 @@ body {
 
 /* Buton Stilleri */
 .btn-update {
-  display: block; /* Tam genişlik kapla */
+  display: block;
   width: 100%;
   background: linear-gradient(to right, #6a11cb, #2575fc);
   color: white;
@@ -172,7 +171,7 @@ body {
   cursor: pointer;
   transition: all 0.3s ease;
   letter-spacing: 0.5px;
-  margin-top: 25px; /* Form ile buton arasına boşluk */
+  margin-top: 25px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
@@ -203,9 +202,13 @@ body {
 
 /* Duyarlı Tasarım */
 @media (max-width: 768px) {
+  body {
+    padding-top: 80px; /* Mobilde navbar için daha az boşluk */
+  }
+
   .container {
     padding: 30px;
-    margin: 15px;
+    margin: 15px auto;
   }
 
   .settings-container h1 {
@@ -234,9 +237,14 @@ body {
 }
 
 @media (max-width: 480px) {
+  body {
+    padding-top: 70px; /* Mobilde navbar için daha az boşluk */
+  }
+
   .container {
     padding: 25px;
     border-radius: 8px;
+    margin: 10px auto;
   }
 
   .settings-container h1 {
