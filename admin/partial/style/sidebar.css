@@ -1,0 +1,302 @@
+/* Google Fonts - İsteğe Bağlı ama Önerilir */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+/* Değişkenler */
+:root {
+  --sidebar-bg: #1e293b;
+  --sidebar-bg-hover: #334155;
+  --sidebar-bg-active: #4f46e5;
+  --sidebar-text: #cbd5e1;
+  --sidebar-text-active: #ffffff;
+  --sidebar-title-text: #94a3b8;
+  --sidebar-icon-color: #94a3b8;
+  --sidebar-width: 280px;
+  --sidebar-width-collapsed: 80px;
+  --header-height: 70px; /* Ana içerik başlığı ile hizalamak için */
+  --transition-speed: 0.3s;
+  --primary-accent: #4f46e5;
+  --warn-accent: #f59e0b;
+  --shadow-color: rgba(0, 0, 0, 0.2);
+  --font-family: "Poppins", sans-serif;
+}
+
+/* Ana Kenar Çubuğu Stili */
+.modern-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--sidebar-width);
+  height: 100vh;
+  background-color: var(--sidebar-bg);
+  color: var(--sidebar-text);
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+  transition: width var(--transition-speed) ease;
+  font-family: var(--font-family);
+}
+
+/* Sidebar Başlığı */
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  height: var(--header-height);
+  flex-shrink: 0;
+  border-bottom: 1px solid var(--sidebar-bg-hover);
+}
+
+.brand-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.brand-icon {
+  font-size: 24px;
+  color: var(--primary-accent);
+}
+
+.brand-content {
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+
+.brand-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--sidebar-text-active);
+}
+
+.brand-subtitle {
+  font-size: 12px;
+  color: var(--sidebar-title-text);
+}
+
+/* Sidebar Açma/Kapama Butonu */
+.sidebar-toggle {
+  background: var(--sidebar-bg-hover);
+  color: var(--sidebar-text);
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform var(--transition-speed) ease;
+}
+
+.sidebar-toggle:hover {
+  background: var(--primary-accent);
+  color: var(--sidebar-text-active);
+}
+
+/* Navigasyon Bölümü */
+.nav-section {
+  padding: 15px 0;
+  overflow-y: auto;
+  flex-grow: 1;
+}
+
+.nav-title {
+  padding: 0 25px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--sidebar-title-text);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+
+.nav-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-item {
+  padding: 0 15px;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  padding: 12px 10px;
+  text-decoration: none;
+  color: var(--sidebar-text);
+  border-radius: 8px;
+  margin-bottom: 5px;
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.nav-link:hover {
+  background-color: var(--sidebar-bg-hover);
+}
+
+.nav-link.active {
+  background-color: var(--sidebar-bg-active);
+  color: var(--sidebar-text-active);
+}
+
+.nav-link.active .nav-icon {
+  color: var(--sidebar-text-active);
+}
+
+.nav-icon {
+  font-size: 18px;
+  min-width: 50px;
+  text-align: center;
+  color: var(--sidebar-icon-color);
+  transition: color var(--transition-speed) ease;
+}
+
+.nav-text,
+.nav-badge {
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+
+/* Bildirim Rozetleri */
+.nav-badge {
+  margin-left: auto;
+  background-color: var(--sidebar-bg-hover);
+  color: var(--sidebar-text);
+  padding: 3px 8px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 12px;
+}
+
+.nav-link.active .nav-badge {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.nav-badge.warn {
+  background-color: var(--warn-accent);
+  color: var(--sidebar-bg);
+}
+
+/* Sidebar Alt Kısmı */
+.sidebar-bottom {
+  flex-shrink: 0;
+  border-top: 1px solid var(--sidebar-bg-hover);
+  padding-top: 10px;
+  margin-top: auto;
+}
+
+/* Kullanıcı Profili */
+.user-profile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+}
+
+.user-avatar {
+  position: relative;
+}
+
+.avatar-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.status-indicator {
+  position: absolute;
+  bottom: 1px;
+  right: 1px;
+  width: 10px;
+  height: 10px;
+  background-color: #2ecc71;
+  border-radius: 50%;
+  border: 2px solid var(--sidebar-bg);
+}
+
+.user-actions {
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+
+.action-btn.logout {
+  background: none;
+  border: none;
+  color: var(--sidebar-icon-color);
+  font-size: 20px;
+  cursor: pointer;
+  padding: 5px;
+}
+.action-btn.logout:hover {
+  color: #e74c3c;
+}
+
+/* -------- DARALTILMIŞ (COLLAPSED) DURUM -------- */
+.modern-sidebar.collapsed {
+  width: var(--sidebar-width-collapsed);
+}
+
+.modern-sidebar.collapsed .sidebar-toggle {
+  transform: rotate(180deg);
+}
+
+.modern-sidebar.collapsed .brand-content,
+.modern-sidebar.collapsed .nav-text,
+.modern-sidebar.collapsed .nav-badge,
+.modern-sidebar.collapsed .nav-title,
+.modern-sidebar.collapsed .user-actions {
+  opacity: 0;
+  pointer-events: none; /* Üzerine gelinmesini engelle */
+}
+
+.modern-sidebar.collapsed .user-profile {
+  justify-content: center;
+}
+
+/* -------- MOBİL VE DUYARLI TASARIM -------- */
+
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+@media (max-width: 1024px) {
+  .modern-sidebar {
+    transform: translateX(-100%);
+    transition: transform var(--transition-speed) ease;
+  }
+
+  .modern-sidebar.mobile-open {
+    transform: translateX(0);
+  }
+
+  .modern-sidebar.mobile-open + .sidebar-overlay {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* JavaScript tarafından ana içeriğe eklenecek padding-left'i sıfırla */
+  .content-wrapper,
+  .main-content {
+    transition: margin-left var(--transition-speed) ease;
+    margin-left: 0 !important; /* JS'nin eklediği stili geçersiz kıl */
+    padding-left: 0 !important;
+  }
+}

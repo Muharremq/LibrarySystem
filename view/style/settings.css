@@ -1,0 +1,276 @@
+/* Genel Stil Ayarları */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(
+    to right,
+    #6a11cb,
+    #2575fc
+  ); /* Modern gradient arka plan */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  color: #333;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding: 20px; /* Kenarlardan boşluk bırak */
+  box-sizing: border-box;
+}
+
+.container {
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 600px; /* Ayarlar sayfası için daha geniş bir maksimum genişlik */
+  box-sizing: border-box;
+  animation: fadeIn 0.8s ease-out forwards;
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.settings-container h1 {
+  color: #2575fc;
+  font-size: 2.5em;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: 700;
+  position: relative;
+}
+
+.settings-container h1::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -10px;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background-color: #6a11cb;
+  border-radius: 2px;
+}
+
+/* Mesaj Kutuları */
+.success-message,
+.error-message {
+  padding: 15px 20px;
+  border-radius: 8px;
+  margin-bottom: 25px;
+  font-size: 0.95em;
+  text-align: center;
+  line-height: 1.4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  animation: slideInFromTop 0.5s ease-out;
+}
+
+.success-message {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  border: 1px solid #a5d6a7;
+}
+
+.error-message {
+  background-color: #ffebee;
+  color: #c62828;
+  border: 1px solid #ef9a9a;
+}
+
+/* Ayarlar Bölümleri */
+.settings-section {
+  background-color: #f9f9f9;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  padding: 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.settings-section h2 {
+  color: #333;
+  font-size: 1.8em;
+  margin-top: 0;
+  margin-bottom: 25px;
+  text-align: center;
+  font-weight: 600;
+  position: relative;
+}
+
+.settings-section h2::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -8px;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 3px;
+  background-color: #2575fc;
+  border-radius: 1.5px;
+}
+
+/* Form Grupları */
+.settings-form .form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.settings-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #555;
+  font-size: 1.05em;
+}
+
+.settings-form input[type="text"],
+.settings-form input[type="email"],
+.settings-form input[type="password"] {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1em;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.settings-form input[type="text"]:focus,
+.settings-form input[type="email"]:focus,
+.settings-form input[type="password"]:focus {
+  border-color: #2575fc;
+  box-shadow: 0 0 0 3px rgba(37, 117, 252, 0.2);
+  outline: none;
+  background-color: #fcfdff;
+}
+
+/* Buton Stilleri */
+.btn-update {
+  display: block; /* Tam genişlik kapla */
+  width: 100%;
+  background: linear-gradient(to right, #6a11cb, #2575fc);
+  color: white;
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+  margin-top: 25px; /* Form ile buton arasına boşluk */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn-update:hover {
+  opacity: 0.95;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Geri Dön Linki */
+.back-link {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.back-link a {
+  color: #2575fc;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1em;
+  transition: color 0.3s ease;
+}
+
+.back-link a:hover {
+  color: #6a11cb;
+  text-decoration: underline;
+}
+
+/* Duyarlı Tasarım */
+@media (max-width: 768px) {
+  .container {
+    padding: 30px;
+    margin: 15px;
+  }
+
+  .settings-container h1 {
+    font-size: 2em;
+    margin-bottom: 25px;
+  }
+
+  .settings-section {
+    padding: 25px;
+    margin-bottom: 25px;
+  }
+
+  .settings-section h2 {
+    font-size: 1.6em;
+    margin-bottom: 20px;
+  }
+
+  .settings-form input {
+    padding: 12px;
+  }
+
+  .btn-update {
+    padding: 13px;
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 25px;
+    border-radius: 8px;
+  }
+
+  .settings-container h1 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+  }
+
+  .settings-section {
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+
+  .settings-section h2 {
+    font-size: 1.4em;
+    margin-bottom: 15px;
+  }
+
+  .settings-form label {
+    font-size: 1em;
+    margin-bottom: 6px;
+  }
+
+  .settings-form input {
+    padding: 10px;
+    font-size: 0.95em;
+  }
+
+  .btn-update {
+    padding: 10px;
+    font-size: 0.95em;
+    margin-top: 20px;
+  }
+
+  .back-link a {
+    font-size: 1em;
+  }
+}

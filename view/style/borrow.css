@@ -1,0 +1,154 @@
+/* Genel Stil Ayarları */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(
+    to right,
+    #6a11cb,
+    #2575fc
+  ); /* Modern gradient arka plan */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  color: #333;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden; /* Taşmayı önlemek için */
+}
+
+.container {
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 450px;
+  text-align: center;
+  box-sizing: border-box;
+  animation: fadeInScale 0.6s ease-out forwards;
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Mesaj Kutuları */
+.success-message,
+.error-message {
+  padding: 25px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  font-size: 1em;
+  text-align: center;
+  line-height: 1.5;
+  animation: slideInFromTop 0.5s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes slideInFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.success-message {
+  background-color: #e8f5e9; /* Hafif yeşil */
+  color: #2e7d32; /* Koyu yeşil metin */
+  border: 1px solid #a5d6a7; /* Yeşil kenarlık */
+}
+
+.success-message h2 {
+  color: #2e7d32;
+  margin-top: 0;
+  font-size: 2em;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.success-message p {
+  font-size: 1.1em;
+  color: #388e3c;
+}
+
+.error-message {
+  background-color: #ffebee; /* Hafif kırmızı */
+  color: #c62828; /* Koyu kırmızı metin */
+  border: 1px solid #ef9a9a; /* Kırmızı kenarlık */
+}
+
+.error-message h2 {
+  color: #c62828;
+  margin-top: 0;
+  font-size: 2em;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.error-message p {
+  font-size: 1.1em;
+  color: #d32f2f;
+}
+
+/* Buton Stili */
+.btn {
+  display: inline-block;
+  background: linear-gradient(
+    to right,
+    #6a11cb,
+    #2575fc
+  ); /* Buton için gradient */
+  color: white;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 25px;
+  font-size: 1.1em;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  letter-spacing: 0.5px;
+}
+
+.btn:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Duyarlı Tasarım */
+@media (max-width: 500px) {
+  .container {
+    margin: 20px;
+    padding: 30px;
+  }
+
+  .success-message,
+  .error-message {
+    padding: 20px;
+  }
+
+  .success-message h2,
+  .error-message h2 {
+    font-size: 1.8em;
+  }
+
+  .btn {
+    padding: 12px 24px;
+    font-size: 1em;
+  }
+}

@@ -1,0 +1,331 @@
+/* Genel Stil ve Değişkenler */
+:root {
+  --primary-color: #4a69bd;
+  --secondary-color: #f6f9fc;
+  --success-color: #2ecc71;
+  --warning-color: #f39c12;
+  --danger-color: #e74c3c;
+  --info-color: #3498db;
+  --text-color: #333;
+  --white-color: #fff;
+  --border-color: #e1e4e8;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --border-radius: 8px;
+  --box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+}
+
+/* Ana İçerik Alanı */
+.main-content {
+  padding: 20px;
+  margin-left: 260px; /* Sidebar genişliği kadar boşluk */
+  transition: margin-left 0.3s; /* Kenar çubuğu geçişi için */
+}
+
+/* Başlık (Header) Stilleri */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: var(--white-color);
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: var(--box-shadow);
+  margin-bottom: 30px;
+  border-radius: var(--border-radius);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.page-title {
+  margin: 0;
+  font-size: 28px;
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.user-info span {
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+.user-avatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/* Mobil Menü Butonu */
+.mobile-menu-btn {
+  display: none; /* Varsayılan olarak gizli */
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  margin-right: 15px;
+  color: var(--text-color);
+}
+
+/* Dashboard İstatistik Kartları */
+.dashboard-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.stat-card {
+  background-color: var(--white-color);
+  padding: 25px 20px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px var(--shadow-color);
+}
+
+.stat-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: var(--white-color);
+}
+
+.stat-icon.books {
+  background-color: var(--primary-color);
+}
+
+.stat-icon.members {
+  background-color: var(--success-color);
+}
+
+.stat-icon.stock {
+  background-color: var(--warning-color);
+}
+
+.stat-icon.loans {
+  background-color: var(--info-color);
+}
+
+.stat-info h3 {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--text-color);
+}
+
+.stat-info p {
+  margin: 5px 0 0 0;
+  color: #666;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Ek İstatistikler */
+.additional-stats {
+  margin-bottom: 30px;
+}
+
+.row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.col-md-6 {
+  flex: 1;
+  min-width: 300px;
+}
+
+.info-card {
+  background-color: var(--white-color);
+  padding: 20px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.info-card h4 {
+  margin: 0 0 15px 0;
+  font-size: 18px;
+  color: var(--text-color);
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.info-item:last-child {
+  border-bottom: none;
+}
+
+.badge {
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--white-color);
+}
+
+.badge-warning {
+  background-color: var(--warning-color);
+}
+
+.badge-danger {
+  background-color: var(--danger-color);
+}
+
+.badge-info {
+  background-color: var(--info-color);
+}
+
+.badge-success {
+  background-color: var(--success-color);
+}
+
+.text-warning {
+  color: var(--warning-color);
+}
+
+.text-primary {
+  color: var(--primary-color);
+}
+
+/* Hızlı İşlemler Bölümü */
+.quick-actions {
+  background-color: var(--white-color);
+  padding: 25px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.quick-actions h3 {
+  margin: 0 0 20px 0;
+  font-size: 20px;
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+/* Eylem Butonları için Grid Düzeni */
+.action-buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 20px;
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  text-decoration: none;
+  border-radius: var(--border-radius);
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  gap: 8px;
+}
+
+.action-btn:hover {
+  background-color: #3b56a0;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+.action-btn i {
+  font-size: 16px;
+}
+
+/* Medya Sorguları ile Duyarlı Tasarım */
+@media (max-width: 1024px) {
+  .main-content {
+    margin-left: 20px; /* Tablet boyutunda kenar boşluğunu azalt */
+  }
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 0; /* Mobil cihazlarda kenar boşluğunu kaldır */
+    padding: 15px;
+  }
+
+  .mobile-menu-btn {
+    display: block; /* Mobil cihazlarda göster */
+  }
+
+  .header {
+    padding: 10px 15px;
+    margin-bottom: 20px;
+  }
+
+  .page-title {
+    font-size: 22px;
+  }
+
+  .dashboard-stats {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .stat-card {
+    padding: 20px 15px;
+  }
+
+  .row {
+    flex-direction: column;
+  }
+
+  .col-md-6 {
+    min-width: unset;
+  }
+
+  .action-buttons {
+    grid-template-columns: 1fr;
+  }
+
+  /* Kenar çubuğunu gizlemek için ek bir sınıf (JavaScript ile yönetilir) */
+  .sidebar.collapsed {
+    transform: translateX(-100%);
+  }
+
+  .main-content.sidebar-open {
+    margin-left: 0;
+  }
+}
